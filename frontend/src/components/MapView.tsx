@@ -165,7 +165,7 @@ export const MapView = ({
         type: 'line',
         source: SELF_TRACK_SOURCE,
         paint: {
-          'line-color': '#22d3ee',
+          'line-color': '#ff7a1a',
           'line-width': 4,
         },
       })
@@ -177,9 +177,9 @@ export const MapView = ({
         source: SELF_POINT_SOURCE,
         paint: {
           'circle-radius': 6,
-          'circle-color': '#0ea5e9',
+          'circle-color': '#ff6600',
           'circle-stroke-width': 2,
-          'circle-stroke-color': '#ffffff',
+          'circle-stroke-color': '#fff2e4',
         },
       })
 
@@ -190,7 +190,7 @@ export const MapView = ({
         source: PEERS_SOURCE,
         filter: ['==', ['geometry-type'], 'LineString'],
         paint: {
-          'line-color': '#a855f7',
+          'line-color': '#ffae55',
           'line-width': 2,
           'line-dasharray': [2, 2],
         },
@@ -202,9 +202,9 @@ export const MapView = ({
         filter: ['==', ['geometry-type'], 'Point'],
         paint: {
           'circle-radius': 4,
-          'circle-color': '#a855f7',
+          'circle-color': '#ffc27d',
           'circle-stroke-width': 1,
-          'circle-stroke-color': '#ffffff',
+          'circle-stroke-color': '#fff2e4',
         },
       })
 
@@ -215,10 +215,10 @@ export const MapView = ({
         source: HISTORY_SOURCE,
         paint: {
           'circle-radius': 4,
-          'circle-color': '#f97316',
+          'circle-color': '#ffb86c',
           'circle-opacity': 0.75,
           'circle-stroke-width': 1,
-          'circle-stroke-color': '#ffffff',
+          'circle-stroke-color': '#fff2e4',
         },
       })
     })
