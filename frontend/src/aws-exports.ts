@@ -3,7 +3,7 @@ import type { ResourcesConfig } from '@aws-amplify/core'
 const awsExports: ResourcesConfig = {
   Auth: {
     Cognito: {
-      identityPoolId: 'ap-northeast-1:2a285780-14e4-4c88-bc39-d8ea973ae640',
+      identityPoolId: 'ap-northeast-1:77c45c82-e7e2-4441-9586-9d5c5f4dc6d3',
       allowGuestAccess: true,
     },
   },

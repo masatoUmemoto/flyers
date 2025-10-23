@@ -1,0 +1,81 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-flyers-dev-4c5dc-authRole",
+      "UnauthRoleArn": "arn:aws:iam::560111363951:role/amplify-flyers-dev-4c5dc-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::560111363951:role/amplify-flyers-dev-4c5dc-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-flyers-dev-4c5dc-deployment",
+      "UnauthRoleName": "amplify-flyers-dev-4c5dc-unauthRole",
+      "StackName": "amplify-flyers-dev-4c5dc",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:560111363951:stack/amplify-flyers-dev-4c5dc/6a6dabb0-b006-11f0-97de-0eb90f2fb57b",
+      "AmplifyAppId": "d30tn7q3cvjhdx"
+    }
+  },
+  "auth": {
+    "flyersAuth": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": [
+            "REQUIRES_NUMBERS",
+            "REQUIRES_LOWERCASE",
+            "REQUIRES_UPPERCASE"
+          ]
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": []
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-flyers-dev-4c5dc-deployment/amplify-cfn-templates/auth/flyersAuth-cloudformation-template.json",
+        "logicalId": "authflyersAuth"
+      },
+      "lastPushTimeStamp": "2025-10-23T14:47:24.409Z",
+      "output": {
+        "UserPoolId": "ap-northeast-1_WxtLU4ic1",
+        "AppClientIDWeb": "gj6krendb29rn4v70sgahoqgr",
+        "AppClientID": "lpeehcokah98acapi409ngdp",
+        "IdentityPoolId": "ap-northeast-1:77c45c82-e7e2-4441-9586-9d5c5f4dc6d3",
+        "UserPoolArn": "arn:aws:cognito-idp:ap-northeast-1:560111363951:userpool/ap-northeast-1_WxtLU4ic1",
+        "IdentityPoolName": "flyersIdentityPool__dev",
+        "UserPoolName": "flyersAuth_userpool_5c47ef4f"
+      },
+      "lastPushDirHash": "40Lw6pfuvk/WMQTutjru0gBFmko="
+    }
+  },
+  "api": {
+    "flyersApi": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "AWS_IAM"
+          },
+          "additionalAuthenticationProviders": []
+        },
+        "GraphQLAPIIdOutput": "fmxcgme4erhbvdnwkgsd4bmooi",
+        "GraphQLAPIEndpointOutput": "https://qwppdobtjfbkthf2jtp56c2f4y.appsync-api.ap-northeast-1.amazonaws.com/graphql"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-flyers-dev-4c5dc-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiflyersApi"
+      },
+      "lastPushTimeStamp": "2025-10-23T14:47:26.187Z",
+      "lastPushDirHash": "tFxsnZjyjYqDZ63OOaxa2tWVqtM="
+    }
+  }
+}
