@@ -10,6 +10,9 @@
       "defaultResolutionStrategy": {
         "type": "NONE"
       }
+    },
+    "iamConfig": {
+      "unauthenticatedUserRoleName": "amplify-flyers-dev-4c5dc-unauthRole"
     }
   }
 }

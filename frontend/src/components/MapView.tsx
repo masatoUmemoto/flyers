@@ -150,7 +150,7 @@ export const MapView = ({
     const map = new maplibregl.Map({
       container: containerRef.current,
       style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
-      center: focus ? [focus.lng, focus.lat] : [139.767, 35.681],
+      center: focus ? [focus.lng, focus.lat] : [137.155, 35.083],
       zoom: focus ? 15 : 12,
       maxZoom: 19,
     })
