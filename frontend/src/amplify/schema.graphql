@@ -1,0 +1,69 @@
+type Session @model @auth(rules: [{ allow: public, provider: iam }]) {
+  sessionId: ID!
+  nickname: String!
+  deviceId: String
+  startedAt: AWSDateTime!
+  endedAt: AWSDateTime
+}
+
+type TrackPoint @model(subscriptions: null)
+  @auth(rules: [{ allow: public, provider: iam }]) {
+  trackId: ID!
+  pointId: ID!
+  ts: AWSDateTime!
+  lat: Float!
+  lng: Float!
+  accuracy: Float
+  nickname: String!
+}
+
+input CreateSessionInput {
+  sessionId: ID!
+  nickname: String!
+  deviceId: String
+  startedAt: AWSDateTime!
+}
+
+input EndSessionInput {
+  sessionId: ID!
+  endedAt: AWSDateTime!
+}
+
+input TrackPointInput {
+  trackId: ID!
+  pointId: ID!
+  ts: AWSDateTime!
+  lat: Float!
+  lng: Float!
+  accuracy: Float
+  nickname: String!
+}
+
+type Mutation {
+  createSession(input: CreateSessionInput!): Session
+  endSession(input: EndSessionInput!): Session
+  putTrackPoints(items: [TrackPointInput!]!): [TrackPoint!]
+}
+
+type Query {
+  getSession(sessionId: ID!): Session
+  listSessionsByTime(
+    start: AWSDateTime!
+    end: AWSDateTime!
+    limit: Int
+    nextToken: String
+  ): [Session!]
+  listTrackPoints(
+    trackId: ID!
+    from: AWSDateTime
+    to: AWSDateTime
+    limit: Int
+    nextToken: String
+  ): [TrackPoint!]
+  listTrackPointsByTime(
+    start: AWSDateTime!
+    end: AWSDateTime!
+    limit: Int
+    nextToken: String
+  ): [TrackPoint!]
+}
