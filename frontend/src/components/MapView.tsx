@@ -149,14 +149,21 @@ export const MapView = ({
 
     const map = new maplibregl.Map({
       container: containerRef.current,
-      style: 'https://demotiles.maplibre.org/style.json',
+      style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
       center: focus ? [focus.lng, focus.lat] : [139.767, 35.681],
       zoom: focus ? 15 : 12,
-      attributionControl: false,
+      maxZoom: 19,
     })
 
     map.addControl(new maplibregl.NavigationControl(), 'top-right')
     map.addControl(new maplibregl.ScaleControl({ maxWidth: 120 }))
+    map.addControl(
+      new maplibregl.AttributionControl({
+        compact: true,
+        customAttribution: '© OpenStreetMap contributors © CARTO',
+      }),
+      'bottom-right',
+    )
 
     map.on('load', () => {
       ensureSource(map, SELF_TRACK_SOURCE, emptyCollection)
