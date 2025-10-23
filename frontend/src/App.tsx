@@ -115,16 +115,14 @@ function App() {
       event.preventDefault()
       setErrorMessage(null)
       const trimmed = nickname.trim()
-      if (!trimmed) {
-        setErrorMessage('ニックネームを入力してください。')
-        return
-      }
+      const nicknameToUse =
+        trimmed || `ゲスト-${deviceId.slice(0, 4).toUpperCase()}`
 
       setIsSubmitting(true)
       try {
         const newSession: Session = await createSession({
           sessionId: uuid(),
-          nickname: trimmed,
+          nickname: nicknameToUse,
           deviceId,
           startedAt: new Date().toISOString(),
         })
@@ -248,9 +246,9 @@ function App() {
               </div>
             </div>
           ) : (
-            <form className="form" onSubmit={startSession}>
+              <form className="form" onSubmit={startSession}>
               <label className="form__label" htmlFor="nickname">
-                ニックネーム
+                ニックネーム（任意）
               </label>
               <input
                 id="nickname"
@@ -261,7 +259,6 @@ function App() {
                 onChange={(event) => setNickname(event.target.value)}
                 className="form__input"
                 autoComplete="off"
-                required
               />
               <button
                 type="submit"

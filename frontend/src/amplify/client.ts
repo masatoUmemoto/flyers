@@ -19,7 +19,22 @@ export const ensureAmplifyConfigured = () => {
 
 export const getGraphQLClient = async (): Promise<GraphQLClient> => {
   ensureAmplifyConfigured()
-  await fetchAuthSession()
+
+  try {
+    await fetchAuthSession()
+  } catch (error) {
+    console.warn('[amplify] fetchAuthSession failed, retrying as guest', error)
+    const session = await fetchAuthSession({ forceRefresh: true }).catch(
+      (retryError) => {
+        console.error('[amplify] fetchAuthSession retry failed', retryError)
+        throw retryError
+      },
+    )
+
+    if (!session?.credentials) {
+      throw error
+    }
+  }
 
   if (!graphQLClient) {
     graphQLClient = generateClient() as GraphQLClient
