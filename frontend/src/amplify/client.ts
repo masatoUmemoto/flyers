@@ -1,6 +1,6 @@
-import { Amplify } from '@aws-amplify/core'
-import type { AuthSession } from '@aws-amplify/auth'
-import { fetchAuthSession } from '@aws-amplify/auth'
+import { Amplify } from 'aws-amplify'
+import type { AuthSession } from 'aws-amplify/auth'
+import { fetchAuthSession } from 'aws-amplify/auth'
 import { generateClient } from 'aws-amplify/api'
 import awsExports from '../aws-exports'
 
