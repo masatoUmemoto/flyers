@@ -4,6 +4,7 @@ const awsExports: ResourcesConfig = {
   Auth: {
     Cognito: {
       identityPoolId: 'ap-northeast-1:2a285780-14e4-4c88-bc39-d8ea973ae640',
+      identityPoolRegion: 'ap-northeast-1',
       allowGuestAccess: true,
     },
   },
