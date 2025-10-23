@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@aws-amplify/api-graphql": "^4.8.0",
+    "@aws-amplify/auth": "^6.16.0",
     "@aws-amplify/core": "^6.13.3",
     "aws-amplify": "^6.15.7",
     "idb-keyval": "^6.2.2",

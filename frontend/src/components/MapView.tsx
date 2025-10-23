@@ -151,7 +151,7 @@ export const MapView = ({
       container: containerRef.current,
       style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
       center: focus ? [focus.lng, focus.lat] : [137.155, 35.083],
-      zoom: focus ? 15 : 12,
+      zoom: focus ? 15 : 14,
       maxZoom: 19,
     })
 

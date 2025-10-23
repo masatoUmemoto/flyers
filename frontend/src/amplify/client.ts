@@ -1,4 +1,5 @@
 import { Amplify } from '@aws-amplify/core'
+import { fetchAuthSession } from '@aws-amplify/auth'
 import { generateClient } from 'aws-amplify/api'
 import awsExports from '../aws-exports'
 
@@ -16,10 +17,13 @@ export const ensureAmplifyConfigured = () => {
   }
 }
 
-export const getGraphQLClient = (): GraphQLClient => {
+export const getGraphQLClient = async (): Promise<GraphQLClient> => {
   ensureAmplifyConfigured()
+  await fetchAuthSession()
+
   if (!graphQLClient) {
     graphQLClient = generateClient() as GraphQLClient
   }
+
   return graphQLClient
 }

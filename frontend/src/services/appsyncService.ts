@@ -36,7 +36,7 @@ const unwrap = <T extends Record<string, unknown>, K extends keyof T>(
 }
 
 export const createSession = async (input: CreateSessionInput) => {
-  const client = getGraphQLClient()
+  const client = await getGraphQLClient()
   const result = (await client.graphql({
     query: createSessionMutation,
     variables: { input },
@@ -47,7 +47,7 @@ export const createSession = async (input: CreateSessionInput) => {
 }
 
 export const endSession = async (input: EndSessionInput) => {
-  const client = getGraphQLClient()
+  const client = await getGraphQLClient()
   const result = (await client.graphql({
     query: endSessionMutation,
     variables: { input },
@@ -58,7 +58,7 @@ export const endSession = async (input: EndSessionInput) => {
 }
 
 export const putTrackPoints = async (items: TrackPointInput[]) => {
-  const client = getGraphQLClient()
+  const client = await getGraphQLClient()
   const result = (await client.graphql({
     query: putTrackPointsMutation,
     variables: { items },
@@ -71,7 +71,7 @@ export const putTrackPoints = async (items: TrackPointInput[]) => {
 export const listTrackPointsByTime = async (
   variables: ListTrackPointsByTimeVariables,
 ) => {
-  const client = getGraphQLClient()
+  const client = await getGraphQLClient()
   const result = (await client.graphql({
     query: listTrackPointsByTimeQuery,
     variables,
@@ -82,7 +82,7 @@ export const listTrackPointsByTime = async (
 }
 
 export const listTrackPoints = async (variables: ListTrackPointsVariables) => {
-  const client = getGraphQLClient()
+  const client = await getGraphQLClient()
   const result = (await client.graphql({
     query: listTrackPointsQuery,
     variables,
@@ -95,7 +95,7 @@ export const listTrackPoints = async (variables: ListTrackPointsVariables) => {
 export const listSessionsByTime = async (
   variables: ListSessionsByTimeVariables,
 ) => {
-  const client = getGraphQLClient()
+  const client = await getGraphQLClient()
   const result = (await client.graphql({
     query: listSessionsByTimeQuery,
     variables,
